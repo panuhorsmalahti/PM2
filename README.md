@@ -1,4 +1,4 @@
-![pm2](https://github.com/unitech/pm2/raw/master/pres/top-logo-wo.png)
+![pm2](https://keymetrics.io/assets/images/application-demo.png)
 
 pm2 is a process manager for Node apps with a built-in load balancer.
 
