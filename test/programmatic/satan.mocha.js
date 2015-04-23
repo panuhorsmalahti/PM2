@@ -10,7 +10,7 @@ describe('Satan', function() {
 
   after(function(done) {
     pm2.delete('all', function(err, ret) {
-      pm2.disconnect(done);
+      done();
     });
   });
 

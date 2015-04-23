@@ -10,24 +10,19 @@ describe('Max memory restart programmatic', function() {
   var proc1 = null;
   var procs = [];
 
-  after(pm2.disconnect);
-
   afterEach(function(done) {
     pm2.delete('all', function() {
       // Wait for process reloaded to exit themselves
-      setTimeout(done, 300);
+      done();
     });
   });
 
   before(function(done) {
     process.env.PM2_WORKER_INTERVAL = 1000;
 
-    pm2.connect(function() {
-      pm2.kill(function() {
-        pm2.connect(function() {
-          done();
-        });
-      });
+    pm2.delete('all', function() {
+      // Wait for process reloaded to exit themselves
+      done();
     });
   });
 

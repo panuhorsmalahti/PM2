@@ -10,19 +10,13 @@ describe('Max memory restart programmatic', function() {
   var proc1 = null;
   var procs = [];
 
-  after(pm2.disconnect);
-
   afterEach(function(done) {
     pm2.delete('all', done);
   });
 
   before(function(done) {
-    pm2.connect(function() {
-      pm2.kill(function() {
-        pm2.connect(function() {
-          done();
-        });
-      });
+    pm2.delete('all', function() {
+      done();
     });
   });
 
